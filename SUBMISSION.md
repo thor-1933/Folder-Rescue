@@ -2,9 +2,9 @@
 
 - [x] Public GitHub repository: https://github.com/thor-1933/Folder-Rescue
 - [ ] Hosted Vercel URL: add after successful deployment and production testing.
-- [ ] Exactly one branch (`main`).
-- [ ] Repository size below 10 MB, excluding no submission-required code.
-- [ ] Run `npm test`, `npm run check`, and `npm run build`.
+- [x] Exactly one branch (`main`), verified on GitHub.
+- [x] Complete project source is approximately 102 KB, comfortably below 10 MB.
+- [x] `npm test` (22 passing), `npm run check`, and `npm run build` verified.
 - [ ] Perform the browser checks in README, especially real-folder access and undo on the deployed origin.
 - [ ] Replace placeholders in the LinkedIn draft, then review and publish.
 - [ ] Confirm event deadline and submission form. The deadline was not supplied.
@@ -29,4 +29,3 @@ Source: https://github.com/thor-1933/Folder-Rescue
 ---
 
 Draft only. Not posted to LinkedIn. Do not present demo actions as changes to real files, and do not claim browser verification until the acceptance checks have been completed.
-
