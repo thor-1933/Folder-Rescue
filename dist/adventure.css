@@ -1,0 +1,93 @@
+/* The adventure is the primary experience; the file dock opens at a checkpoint. */
+[hidden]{display:none!important}
+main{max-width:1600px;padding-top:28px}
+.heading{margin-bottom:18px}
+h1{font-size:clamp(32px,3.3vw,50px);letter-spacing:-2px;line-height:1.14}
+.eyebrow{margin-bottom:12px;font-size:8px}
+.intro{margin:12px 0 0;font-size:12px;line-height:1.65}
+.heading-badge{transform:rotate(-5deg);font-size:8px}
+.stats{padding:14px 0;margin-bottom:20px}
+.stats strong{font-size:22px}
+.workspace{display:block}
+.mission-panel{border-color:#526451;border-radius:12px}
+.panel-top{background:#17221e;height:48px}
+.game-stage{position:relative;background:#a7d6dc;isolation:isolate;overflow:hidden}
+#gameCanvas{display:block;width:100%;height:auto;aspect-ratio:2;image-rendering:pixelated;outline-offset:-5px}
+.game-overlay{position:absolute;inset:0;display:flex;align-items:flex-start;justify-content:center;flex-direction:column;padding:6%;background:linear-gradient(90deg,#112f2ded 0%,#173933df 35%,#17393366 65%,transparent 100%)}
+.adventure-tag{font:700 10px monospace;letter-spacing:2px;color:#d1fb76;margin-bottom:20px}
+.game-overlay h2{font-size:clamp(26px,4vw,56px);max-width:600px;line-height:1.05;letter-spacing:-2px;margin:0;color:#f5f1d4;text-shadow:3px 3px 0 #112f2d}
+.game-overlay p{max-width:360px;color:#d7e5ce;font-size:13px;line-height:1.8;margin:20px 0}
+.game-overlay .primary{flex:none;padding:15px 25px;border-radius:4px;box-shadow:0 5px 0 #73944b;font-size:13px}
+.overlay-footnote{font:8px monospace;letter-spacing:1.2px;color:#b9cdb0;margin-top:22px}
+.game-toolbar{padding:13px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px;background:#1b2924;border-top:1px solid #57735b}
+.game-controls,.game-utilities{display:flex;align-items:center;gap:7px}
+.control-key{border:1px solid #61715d;border-bottom:3px solid #526047;border-radius:5px;background:#27372e;color:#eaf2d9;height:38px;min-width:42px;font-size:20px;touch-action:none;user-select:none}
+.control-key:active{background:#586e40;border-bottom-width:1px;transform:translateY(1px)}
+.jump-key{display:flex;gap:6px;align-items:center;justify-content:center;padding:0 12px}
+.jump-key span{font-size:10px}
+.control-hint{color:#abbba5;font-size:10px;margin-left:10px}
+.game-utilities .quiet{color:#e3e9d8}
+.assist{display:flex;align-items:center;gap:6px;font-size:10px;color:#d0dcc5;white-space:nowrap;cursor:pointer}
+.assist input{accent-color:var(--lime);width:15px;height:15px}
+.checkpoint-bar{padding:15px 19px;background:#14201c;display:flex;align-items:center;justify-content:space-between;gap:20px;border-top:1px solid #34483a}
+.checkpoint-bar>div{display:flex;align-items:center;gap:0;font-size:11px;color:#c2d3b4;line-height:1.6}
+.checkpoint-bar .local-dot{flex-shrink:0}
+.checkpoint-bar button{flex-shrink:0;border-color:#687e51;background:#d1fb760b;color:var(--lime);font-size:11px}
+.global-status{margin:0;padding:10px 19px 13px;background:#14201c;font-size:10px;color:#acbea5}
+.play-area{border-top:1px solid #647a4f;background:#1c2b23;padding:24px}
+.checkpoint-heading{display:flex;gap:15px;align-items:center;justify-content:space-between;margin-bottom:22px}
+.checkpoint-heading h2{font-size:21px;margin:5px 0 0;font-weight:500;letter-spacing:-.5px}
+.checkpoint-heading .secondary{color:var(--lime);border-color:#728658}
+.checkpoint-layout{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.checkpoint-layout .destination-label{margin-top:0}
+.checkpoint-layout .actions{margin-top:14px}
+.checkpoint-layout .file-card{background:#25372a}
+.checkpoint-layout .suggestion{padding-bottom:0}
+.checkpoint-layout .destination{padding:12px 9px}
+.checkpoint-layout .primary{font-size:11px;padding:12px 9px}
+.checkpoint-layout .primary span{margin-left:4px}
+.right-rail{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:23px}
+.director,.connect,.how{border:1px solid #344238;border-radius:9px;padding:23px;background:#17221d}
+.director h2{font-size:25px;margin:13px 0 10px}
+.director h2 br{display:none}
+.director>p{min-height:40px}
+.director .progress-top{margin-top:18px}
+.director-tip{margin-top:15px;font-size:9px}
+.connect h2{margin-top:4px}
+.connect .outline-icon{font-size:23px;float:right}
+.connect .secondary{margin-top:14px}
+.how{display:block}
+.how ol{margin-top:15px}
+.how li{margin:12px 0}
+.spark-total{font-size:10px;color:#cfb97a;border-top:1px solid #344238;padding-top:12px;margin-top:16px}
+.spark-total strong{color:var(--lime);font-size:16px;margin-right:3px}
+.how>.secondary{margin-top:12px;width:100%;text-align:left;color:var(--lime)}
+footer{margin-top:24px}
+@media(min-width:1650px){main{padding-top:35px}.game-overlay h2{font-size:60px}}
+@media(max-width:1150px){.control-hint{display:none}.right-rail{gap:14px}.director,.connect,.how{padding:18px}.checkpoint-layout{gap:18px}.checkpoint-layout .actions{flex-wrap:wrap}.checkpoint-layout .actions .secondary{padding:10px}.checkpoint-layout .destination{font-size:9px}}
+@media(max-width:900px){#gameCanvas{width:130%;max-width:none}.right-rail{grid-template-columns:1fr 1fr}.how{grid-column:1/-1;display:grid;grid-template-columns:1fr auto;gap:0 20px;align-items:center}.how ol{grid-column:1;grid-row:2/4;display:flex;gap:20px}.how>.secondary{grid-column:2;grid-row:3;margin-top:6px}.spark-total{grid-column:2;grid-row:2;border:0;white-space:nowrap}.game-overlay h2{font-size:37px}.game-overlay p{font-size:11px;max-width:280px;margin:14px 0}.adventure-tag{margin-bottom:12px}.overlay-footnote{font-size:7px;margin-top:17px}.game-overlay .primary{padding:12px 20px}.checkpoint-layout{grid-template-columns:1fr}.checkpoint-heading h2{font-size:18px}}
+@media(max-width:560px){main{padding-top:23px}h1{font-size:35px;letter-spacing:-1.4px}.heading .eyebrow{font-size:6px;letter-spacing:1.4px}.intro{font-size:11px}.heading-badge{display:none}.stats{padding:0;margin-top:22px}.game-stage{overflow:hidden}#gameCanvas{width:160%;max-width:none;aspect-ratio:2;transform:none}.game-overlay{padding:22px;background:linear-gradient(90deg,#112f2df2,#173933bb 72%,#17393355)}.game-overlay h2{font-size:34px;max-width:260px;letter-spacing:-1.5px}.game-overlay p{font-size:11px;max-width:245px;line-height:1.6;margin:13px 0}.adventure-tag{font-size:7px;letter-spacing:1.5px;margin-bottom:12px}.overlay-footnote{font-size:6px;letter-spacing:.7px;margin-top:17px}.game-overlay .primary{padding:12px 18px;font-size:11px}.game-toolbar{padding:12px;align-items:center;gap:4px;flex-wrap:wrap}.game-utilities{gap:0;margin-left:auto}.game-utilities .quiet{padding:7px}.control-key{height:40px;min-width:38px}.jump-key{padding:0 8px}.assist{font-size:9px;gap:3px}.assist input{width:14px;height:14px}.checkpoint-bar{padding:14px;flex-direction:column;gap:12px;align-items:stretch}.checkpoint-bar>div{font-size:10px}.checkpoint-bar .secondary{text-align:center}.right-rail{grid-template-columns:1fr}.how{grid-column:auto;display:block}.how ol{display:block}.how>.secondary{width:100%}.spark-total{border-top:1px solid #344238}.checkpoint-heading{align-items:flex-start;flex-direction:column;gap:12px}.checkpoint-heading .secondary{width:100%}.play-area{padding:18px 14px}.global-status{padding:0 14px 13px;font-size:9px}.checkpoint-layout .destination{font-size:10px}.checkpoint-layout .primary{font-size:10px}.panel-top{font-size:8px}.pill{font-size:7px}}
+
+/* File pickups trigger this in-world decision, never a separate chore station. */
+.game-stage{min-height:390px}
+.game-overlay .primary{margin-bottom:13px}
+.game-overlay>.secondary{background:#17372de0;color:#d9e7d1;border-color:#8fa584;padding:10px 18px}
+.game-overlay .overlay-footnote{margin-top:15px}
+.game-stage>.play-area{position:absolute;z-index:3;inset:16px 24px auto;max-height:calc(100% - 32px);overflow:auto;border:1px solid #b6d77b;border-radius:9px;box-shadow:0 12px 60px #0c231ac9;padding:20px;background:#1a2c23f5}
+.game-stage .checkpoint-heading{margin-bottom:17px}
+.game-stage .checkpoint-heading h2{font-size:23px}
+.game-stage .checkpoint-layout{grid-template-columns:1fr 1fr;gap:20px}
+.game-stage .file-card{padding:13px}
+.game-stage .suggestion{font-size:11px}
+.game-stage .preview{color:#c2d2b4}
+.game-stage .destination{font-size:11px}
+.game-stage .actions .primary{font-size:12px}
+@media(max-width:900px){.game-stage{min-height:390px}.game-overlay h2{font-size:34px}.game-stage .checkpoint-layout{grid-template-columns:1fr}.game-stage .checkpoint-heading{flex-direction:row;align-items:center}.game-stage .checkpoint-heading .secondary{width:auto}.game-stage .suggestion{padding:9px 0}.game-stage .mission-meta{margin-bottom:8px}.game-stage .checkpoint-heading h2{font-size:20px}}
+@media(max-width:560px){.game-stage{min-height:395px}.game-overlay{padding:25px 20px}.game-overlay .primary{padding:14px 18px;font-size:12px}.game-overlay p{font-size:12px;max-width:270px}.game-stage>.play-area{inset:10px 10px auto;max-height:calc(100% - 20px);padding:14px}.game-stage .checkpoint-heading h2{font-size:18px}.game-stage .checkpoint-heading .section-label{font-size:7px}.game-stage .destination{font-size:10px}.game-stage .checkpoint-heading{gap:8px}.game-stage .checkpoint-heading .secondary{padding:7px 9px;font-size:9px}}
+.sort-mode-pill{font:8px monospace;letter-spacing:1px;background:#d1fb7614;color:var(--lime);border:1px solid #748b4e;border-radius:4px;padding:5px 7px;margin-right:7px;white-space:nowrap}
+.game-overlay .sorting-notice{font-size:10px;color:#e1eccf;max-width:490px;line-height:1.6;margin:12px 0 0}
+.game-overlay .overlay-footnote{display:none}
+#dialogBody label:has(select){flex-direction:column;align-items:stretch;gap:8px;font-weight:700}
+#sortingMode{background:#26372c;color:#edf3de;border:1px solid #789158;border-radius:6px;padding:12px;font:12px Arial;width:100%}
+@media(max-width:900px){.game-stage{min-height:440px}.game-overlay h2{font-size:31px}.game-overlay .sorting-notice{font-size:10px;max-width:340px}.game-overlay p{margin:12px 0}}
+@media(max-width:560px){.game-stage{min-height:450px}.game-utilities{flex-wrap:wrap}.sort-mode-pill{font-size:7px;padding:4px;margin-right:2px}.game-toolbar{gap:10px}.game-overlay .sorting-notice{font-size:10px;max-width:290px}}

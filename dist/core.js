@@ -1,0 +1,8 @@
+export const CATEGORIES=['Documents','Images','Media','Archives','Code','Other'];
+const types={Documents:'pdf doc docx txt md csv xls xlsx ppt pptx odt',Images:'png jpg jpeg gif webp svg heic avif',Media:'mp3 wav mp4 mov webm flac m4a',Archives:'zip rar 7z tar gz',Code:'js ts jsx tsx py html css json java go rs'};
+export function classify(name){const ext=name.includes('.')?name.split('.').pop().toLowerCase():'';const category=Object.keys(types).find(k=>types[k].split(' ').includes(ext));return category?{category,confidence:1,source:'file-type',reason:`.${ext} → ${category}. Recognized file type; contents stay private.`}:inferFilename(name);}
+export function safeName(name){if(!name||name==='.'||name==='..'||/[\\/\u0000-\u001f]/.test(name))throw Error('Unsafe filename');return name;}
+export function planMission(files){const counts=Object.fromEntries(CATEGORIES.map(c=>[c,0]));for(const f of files)counts[classify(f.name).category]++;const category=CATEGORIES.reduce((a,b)=>counts[b]>counts[a]?b:a);return {category,count:counts[category],text:counts[category]?`${category} are your biggest clutter cluster. Rescue ${counts[category]} to restore this district.`:'All clear. Your workspace is ready for a fresh start.'};}
+export function formatBytes(n){return n<1024?`${n} B`:n<1048576?`${(n/1024).toFixed(1)} KB`:`${(n/1048576).toFixed(1)} MB`;}
+export const DEMO=['project-proposal.pdf','sunset-weekend.jpg','meeting-notes.txt','budget-october.xlsx','launch-video.mp4','brand-assets.zip','homepage.tsx','invoice-1042.pdf','screenshot-final.png','research-notes.md','playlist.mp3','mystery-download'].map((name,i)=>({name,size:(i+1)*7421,demo:true,id:name}));
+import {inferFilename} from './ai.js';
